@@ -4,7 +4,7 @@ import InteriorSquare from '../InteriorSquare/InteriorSquare';
 import './ExteriorSquare.css';
 
 const ExteriorSquare = () => {
-    const { player, setPlayer } = useContext(GameContext);
+    const { player, setPlayer, checkInnerWin, setWinner } = useContext(GameContext);
 
     const [values, setValues] = useState([null, null, null, null, null, null, null, null, null]);
 
@@ -16,6 +16,8 @@ const ExteriorSquare = () => {
             id: prevState.id === 1 ? 2 : 1,
             symbol: prevState.id === 1 ? 'O' : 'X',
         }));
+        const winner = checkInnerWin(valuesCopy);
+        winner && setWinner(winner);
     }
 
     return (
