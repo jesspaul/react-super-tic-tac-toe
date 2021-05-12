@@ -4,7 +4,14 @@ import './ExteriorSquare.css';
 const ExteriorSquare = () => {
     return (
         <div className="ExteriorSquare">
-            Exterior
+            <InteriorSquare />
+            <InteriorSquare />
+            <InteriorSquare />
+            <InteriorSquare />
+            <InteriorSquare />
+            <InteriorSquare />
+            <InteriorSquare />
+            <InteriorSquare />
             <InteriorSquare />
         </div>
     );

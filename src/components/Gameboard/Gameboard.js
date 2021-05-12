@@ -1,9 +1,18 @@
+import ExteriorSquare from '../ExteriorSquare/ExteriorSquare';
 import './Gameboard.css';
 
 const Gameboard = () => {
     return (
         <div className="Gameboard">
-            Gameboard
+            <ExteriorSquare />
+            <ExteriorSquare />
+            <ExteriorSquare />
+            <ExteriorSquare />
+            <ExteriorSquare />
+            <ExteriorSquare />
+            <ExteriorSquare />
+            <ExteriorSquare />
+            <ExteriorSquare />
         </div>
     );
 }
