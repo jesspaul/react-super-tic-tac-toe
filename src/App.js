@@ -9,7 +9,6 @@ function App() {
       <h1>Super Tic Tac Toe</h1>
       <Instructions />
       <Gameboard />
-      <ExteriorSquare />
     </div>
   );
 }
