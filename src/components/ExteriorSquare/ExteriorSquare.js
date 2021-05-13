@@ -9,19 +9,21 @@ const ExteriorSquare = ({ extValue, extIdx, handleExtChange }) => {
     const [values, setValues] = useState([null, null, null, null, null, null, null, null, null]);
 
     const handleClick = (index) => {
-        const valuesCopy = values;
-        valuesCopy[index] = player.symbol;
-        setValues(valuesCopy);
-        setPlayer(prevState => ({
-            id: prevState.id === 1 ? 2 : 1,
-            symbol: prevState.id === 1 ? 'O' : 'X',
-        }));
-
-        const winner = checkWin(valuesCopy);
-        if (winner) {
-            setInnerWinner(winner);
-            handleExtChange(extIdx, winner);
-        } 
+        if (values[index] === null) {
+            const valuesCopy = values;
+            valuesCopy[index] = player.symbol;
+            setValues(valuesCopy);
+            setPlayer(prevState => ({
+                id: prevState.id === 1 ? 2 : 1,
+                symbol: prevState.id === 1 ? 'O' : 'X',
+            }));
+    
+            const winner = checkWin(valuesCopy);
+            if (winner) {
+                setInnerWinner(winner);
+                handleExtChange(extIdx, winner);
+            } 
+        }
     }
 
     return (
