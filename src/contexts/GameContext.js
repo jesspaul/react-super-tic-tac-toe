@@ -21,9 +21,7 @@ const GameContextProvider = ({ children }) => {
             });
         }
     }
-
-    const [winner, setWinner] = useState(null);
-
+    
     const winningPositions = [
         [0, 1, 2],
         [3, 4, 5],
@@ -34,22 +32,27 @@ const GameContextProvider = ({ children }) => {
         [0, 4, 8],
         [2, 4, 6]
     ];
-
-    const checkInnerWin = (squares) => {
+    
+    const checkWin = (squares) => {
         for (let i = 0; i < winningPositions.length; i++) {
-          const [a, b, c] = winningPositions[i];
-          if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
-          }
+            const [a, b, c] = winningPositions[i];
+            if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+                return squares[a];
+            }
         }
         return null;
-      }
+    }
+    
+    const [innerWinner, setInnerWinner] = useState(null);
+    const [winner, setWinner] = useState(null);
 
     const contextValue = {
         player,
         setPlayer,
         togglePlayer,
-        checkInnerWin,
+        checkWin,
+        innerWinner,
+        setInnerWinner,
         winner,
         setWinner
     }

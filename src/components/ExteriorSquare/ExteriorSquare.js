@@ -3,8 +3,8 @@ import { GameContext } from '../../contexts/GameContext';
 import InteriorSquare from '../InteriorSquare/InteriorSquare';
 import './ExteriorSquare.css';
 
-const ExteriorSquare = () => {
-    const { player, setPlayer, checkInnerWin, setWinner } = useContext(GameContext);
+const ExteriorSquare = ({ extValue, extIdx, handleExtChange }) => {
+    const { player, setPlayer, checkWin, setInnerWinner } = useContext(GameContext);
 
     const [values, setValues] = useState([null, null, null, null, null, null, null, null, null]);
 
@@ -16,21 +16,29 @@ const ExteriorSquare = () => {
             id: prevState.id === 1 ? 2 : 1,
             symbol: prevState.id === 1 ? 'O' : 'X',
         }));
-        const winner = checkInnerWin(valuesCopy);
-        winner && setWinner(winner);
+
+        const winner = checkWin(valuesCopy);
+        if (winner) {
+            setInnerWinner(winner);
+            handleExtChange(extIdx, winner);
+        } 
     }
 
     return (
         <div className="ExteriorSquare">
             {
-                values.map((value, idx) => (
-                    <InteriorSquare
-                        key={idx}
-                        idx={idx}
-                        value={value}
-                        handleClick={handleClick}
-                    />
-                ))
+                extValue ? (
+                    <p>{extValue}</p>
+                ) : (
+                    values.map((value, idx) => (
+                        <InteriorSquare
+                            key={idx}
+                            idx={idx}
+                            value={value}
+                            handleClick={handleClick}
+                        />
+                    ))
+                )
             }
         </div>
     );
