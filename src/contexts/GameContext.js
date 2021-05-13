@@ -45,7 +45,8 @@ const GameContextProvider = ({ children }) => {
     
     const [innerWinner, setInnerWinner] = useState(null);
     const [winner, setWinner] = useState(null);
-    const [currentSquare, setCurrentSquare] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+    const [allOptions, setAllOptions] = useState([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+    const [currentSquare, setCurrentSquare] = useState(allOptions);
 
     const contextValue = {
         player,
@@ -57,7 +58,9 @@ const GameContextProvider = ({ children }) => {
         winner,
         setWinner,
         currentSquare,
-        setCurrentSquare
+        setCurrentSquare,
+        allOptions,
+        setAllOptions
     }
 
     return (

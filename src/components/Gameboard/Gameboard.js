@@ -26,6 +26,7 @@ const Gameboard = () => {
                         extIdx={extIdx}
                         extValue={extValue}
                         handleExtChange={handleExtChange}
+                        extValues={extValues}
                     />
                 ))
             }

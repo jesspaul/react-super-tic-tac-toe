@@ -3,13 +3,13 @@ import { GameContext } from '../../contexts/GameContext';
 import InteriorSquare from '../InteriorSquare/InteriorSquare';
 import './ExteriorSquare.css';
 
-const ExteriorSquare = ({ extValue, extIdx, handleExtChange }) => {
-    const { player, setPlayer, checkWin, setInnerWinner, currentSquare, setCurrentSquare } = useContext(GameContext);
+const ExteriorSquare = ({ extValue, extIdx, handleExtChange, extValues }) => {
+    const { player, setPlayer, checkWin, setInnerWinner, currentSquare, setCurrentSquare, winner, allOptions, setAllOptions } = useContext(GameContext);
 
     const [values, setValues] = useState([null, null, null, null, null, null, null, null, null]);
 
     const handleClick = (index) => {
-        if (values[index] === null && currentSquare.includes(extIdx)) {
+        if (!winner && values[index] === null && currentSquare.includes(extIdx)) {
             const valuesCopy = values;
             valuesCopy[index] = player.symbol;
             setValues(valuesCopy);
@@ -17,7 +17,14 @@ const ExteriorSquare = ({ extValue, extIdx, handleExtChange }) => {
                 id: prevState.id === 1 ? 2 : 1,
                 symbol: prevState.id === 1 ? 'O' : 'X',
             }));
-            setCurrentSquare([index]);
+
+            if (extValues[index] !== null) {
+                let newOptions = allOptions.filter(num => num !== index);
+                setAllOptions(newOptions);
+                setCurrentSquare(newOptions);
+            } else {
+                setCurrentSquare([index]);
+            }
     
             const winner = checkWin(valuesCopy);
             if (winner) {
@@ -28,7 +35,7 @@ const ExteriorSquare = ({ extValue, extIdx, handleExtChange }) => {
     }
 
     return (
-        <div className={currentSquare.includes(extIdx) ? 'current' : 'ExteriorSquare'}>
+        <div className={currentSquare.includes(extIdx) && !winner ? 'current' : 'ExteriorSquare'}>
             {
                 extValue ? (
                     <p>{extValue}</p>
