@@ -35,22 +35,27 @@ const ExteriorSquare = ({ extValue, extIdx, handleExtChange, extValues }) => {
     }
 
     return (
-        <div className={currentSquare.includes(extIdx) && !winner ? 'current' : 'ExteriorSquare'}>
-            {
-                extValue ? (
-                    <p>{extValue}</p>
-                ) : (
-                    values.map((value, idx) => (
+        <>
+        {
+            extValue ? (
+                <div className="played">
+                    {extValue}
+                </div>
+            ) : (
+                <div className={allOptions.includes(extIdx) ? 'ExteriorSquare' : 'played'}>
+                    {values.map((value, idx) => (
                         <InteriorSquare
                             key={idx}
                             idx={idx}
                             value={value}
                             handleClick={handleClick}
+                            current={currentSquare.includes(extIdx) ? 'current' : null}
                         />
-                    ))
-                )
-            }
-        </div>
+                    ))}
+                </div>
+            )
+        }
+        </>
     );
 }
  
