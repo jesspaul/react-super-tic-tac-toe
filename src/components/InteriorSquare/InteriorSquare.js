@@ -1,9 +1,12 @@
+import { useContext } from 'react';
+import { GameContext } from '../../contexts/GameContext';
 import './InteriorSquare.css';
 
-const InteriorSquare = () => {
+const InteriorSquare = ({ value, idx, handleClick, current }) => {
+    const { winner } = useContext(GameContext);
     return (
-        <div className="InteriorSquare">
-            Interior
+        <div className={!winner && current ? 'current InteriorSquare' : "InteriorSquare"} onClick={() => handleClick(idx)}>
+            {value}
         </div>
     );
 }
