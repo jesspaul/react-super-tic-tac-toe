@@ -1,7 +1,7 @@
 .InteriorSquare {
     background-color: var(--light-green);
-    width: 6vw;
-    height: 6vw;
+    width: 6.3vw;
+    height: 6.3vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,10 +10,4 @@
 
 .current {
     background-color: var(--bright-green);
-    width: 6vw;
-    height: 6vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
 }
