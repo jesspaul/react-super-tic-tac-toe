@@ -1,9 +1,9 @@
 import './InteriorSquare.css';
 
-const InteriorSquare = () => {
+const InteriorSquare = ({ value, idx, handleClick }) => {
     return (
-        <div className="InteriorSquare">
-            
+        <div className="InteriorSquare" onClick={() => handleClick(idx)}>
+            {value}
         </div>
     );
 }
