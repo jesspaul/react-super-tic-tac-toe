@@ -35,7 +35,8 @@ const ExteriorSquare = ({ extValue, extIdx, handleExtChange, extValues }) => {
     }
 
     return (
-        <div className={allOptions.includes(extIdx) ? (currentSquare.includes(extIdx) && !winner ? 'current' : 'ExteriorSquare') : ('played')}>
+        <div className={allOptions.includes(extIdx) ? 'ExteriorSquare' : 'played'}>
+        {/* <div className={allOptions.includes(extIdx) ? (currentSquare.includes(extIdx) && !winner ? 'current' : 'ExteriorSquare') : ('played')}> */}
             {
                 extValue ? (
                     <p>{extValue}</p>
@@ -46,6 +47,7 @@ const ExteriorSquare = ({ extValue, extIdx, handleExtChange, extValues }) => {
                             idx={idx}
                             value={value}
                             handleClick={handleClick}
+                            current={currentSquare.includes(extIdx) ? 'current' : null}
                         />
                     ))
                 )

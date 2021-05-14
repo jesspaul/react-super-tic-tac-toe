@@ -1,5 +1,5 @@
 .ExteriorSquare {
-    background-color: var(--light-green);
+    background-color: var(--dark-green);
     width: 20vw;
     height: 20vw;
     display: grid;
@@ -11,17 +11,17 @@
 }
 
 .played {
+    background-color: var(--light-green);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 6rem;
-    background-color: pink;
     height: 20vw;
     width: 20vw;
 }
 
-.current {
-    background-color: red;
+/* .current {
+    background-color: var(--bright-green);
     width: 20vw;
     height: 20vw;
     display: grid;
@@ -30,4 +30,4 @@
     grid-gap: .6rem;
     justify-content: center;
     align-items: center;
-}
+} */
