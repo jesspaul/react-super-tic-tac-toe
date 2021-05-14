@@ -5,6 +5,7 @@
   --dark-green: #1E4844;
   --light-green: #D6EADF;
   --bright-green: #B8E0D2;
+  --winning-gradient: linear-gradient(#ECC30B, #F79D65, #FF2ECC);
 }
 
 #root {
